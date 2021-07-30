@@ -10,7 +10,12 @@ export default function ImgDropImg({ file, setFieldValue, values }) {
     <div className="flex justify-between items-center my-2">
       <div className="flex items-center w-10/12">
         <div className="mr-4 w-20 flex-shrink-0">
-          <img className="object-contain" src={URL.createObjectURL(file)} />
+          {/* eslint-disable-next-line */}
+          <img
+            className="object-contain"
+            src={URL.createObjectURL(file)}
+            alt={file.name}
+          />
         </div>
         <div className="text-sm uppercase truncate">
           <div className="align-middle text-center whitespace-nowrap overflow-hidden truncate">

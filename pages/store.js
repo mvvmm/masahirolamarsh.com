@@ -4,7 +4,6 @@ import StoreHeader from "../components/StoreHeader";
 import { getSession, useSession } from "next-auth/client";
 
 export default function Home({ session }) {
-  console.log(session);
   return (
     <h1>
       <Header />

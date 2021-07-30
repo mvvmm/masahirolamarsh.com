@@ -4,7 +4,7 @@ import { PlusIcon } from "@heroicons/react/outline";
 import { useState } from "react";
 import AddProductModal from "../../components/admin/AddProductModal";
 
-export default function admin({ session }) {
+export default function Product({ session }) {
   let [newProductModalOpen, setNewProductModalOpen] = useState(false);
 
   function closeModal() {

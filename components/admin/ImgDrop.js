@@ -8,7 +8,7 @@ export default function ImgDrop({ setFieldValue, setFieldTouched, values }) {
       setFieldTouched("imgs", true);
       setFieldValue("imgs", [...values.imgs, ...droppedFiles]);
     },
-    [values.imgs]
+    [values.imgs, setFieldValue, setFieldTouched]
   );
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,

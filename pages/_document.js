@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default class MyDocument extends Document {
   render() {
@@ -17,6 +18,8 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
           ></link>
+          {/* <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></Script>
+          <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></Script> */}
         </Head>
         <body>
           <Main />
