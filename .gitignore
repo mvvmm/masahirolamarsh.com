@@ -30,7 +30,7 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 firebase-key.json
-db.js
+dbconfig.js
 
 # vercel
 .vercel
