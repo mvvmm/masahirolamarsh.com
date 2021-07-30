@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Header() {
+  console.log();
   return (
     <div>
       <div className="h-auto p-4 lg:flex lg:flex-row-reverse lg:justify-between">
