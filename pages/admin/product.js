@@ -1,11 +1,18 @@
 import Auth from "../../components/admin/Auth";
 import { getSession } from "next-auth/client";
 import { PlusIcon } from "@heroicons/react/outline";
-import { useState } from "react";
-import AddProductModal from "../../components/admin/AddProductModal";
+import { useState, useEffect } from "react";
+import AddProductModal from "../../components/admin/products/AddProductModal";
+import ProductSection from "../../components/admin/products/ProductSection";
+import { getProductData } from "../../lib/db";
 
 export default function Product({ session }) {
+  let [productData, setProductData] = useState([]);
   let [newProductModalOpen, setNewProductModalOpen] = useState(false);
+
+  useEffect(() => {
+    updateProductData();
+  }, []);
 
   function closeModal() {
     setNewProductModalOpen(false);
@@ -15,12 +22,18 @@ export default function Product({ session }) {
     setNewProductModalOpen(true);
   }
 
+  async function updateProductData() {
+    const data = await getProductData();
+    setProductData(data);
+  }
+
   return (
     <Auth session={session}>
       <AddProductModal
         session={session}
         closeModal={closeModal}
         newProductModalOpen={newProductModalOpen}
+        updateProductData={updateProductData}
       />
 
       <div className="relative border-b mb-4">
@@ -33,6 +46,7 @@ export default function Product({ session }) {
           <p className="text-xs text-green-900">NEW</p>
         </button>
       </div>
+      <ProductSection productData={productData} />
     </Auth>
   );
 }

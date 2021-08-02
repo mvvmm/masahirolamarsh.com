@@ -1,12 +1,13 @@
 import { XIcon } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import AddProductForm from "../../components/admin/AddProductForm";
+import AddProductForm from "../products/AddProductForm";
 
 export default function AddProductModal({
   session,
   closeModal,
   newProductModalOpen,
+  updateProductData,
 }) {
   return (
     <Transition appear show={newProductModalOpen} as={Fragment}>
@@ -59,7 +60,11 @@ export default function AddProductModal({
                 <XIcon className="w-5 h-5" />
               </button>
               <div className="mt-2">
-                <AddProductForm session={session} closeModal={closeModal} />
+                <AddProductForm
+                  session={session}
+                  closeModal={closeModal}
+                  updateProductData={updateProductData}
+                />
               </div>
             </div>
           </Transition.Child>

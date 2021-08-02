@@ -1,51 +1,55 @@
 import { Formik } from "formik";
-import axios from "axios";
 import { useState } from "react";
-import ImgDrop from "./ImgDrop";
-import SpinyIcon from "./SpinyIcon";
-import FormData from "form-data";
+import ImgDrop from "../ImgDrop";
+import SpinyIcon from "../SpinyIcon";
+import { nanoid } from "nanoid";
+import { addProductImages } from "../../../lib/aws";
+import { addProductData, getProductData } from "../../../lib/db";
 
-export default function AddProductForm({ session, closeModal }) {
+export default function AddProductForm({
+  session,
+  closeModal,
+  updateProductData,
+}) {
   const [message, setMessage] = useState("");
   const [messageSuccess, setMessageSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
-  function addProductToDB(values, setSubmitting, resetForm) {
-    const body = new FormData();
-    values.imgs.forEach((file) => {
-      body.append(file.name, file);
-    });
-    const data = {
-      userID: session.user.id || null,
-      values,
+  async function addProductToDB(values, setSubmitting, resetForm) {
+    const userID = session.user.id || null;
+    const productID = nanoid();
+
+    try {
+      await addProductImages(userID, productID, values.imgs);
+    } catch (err) {
+      setMessage(err.message);
+      setMessageSuccess(false);
+      setShowMessage(true);
+      return;
+    }
+
+    const productData = {
+      ...values,
+      productID,
+      dateAdded: Date.parse(new Date()),
     };
-    body.append("data", JSON.stringify(data));
-    axios
-      .post("/api/admin/products/add", body, {
-        headers: {
-          "Content-Type": `multipart/form-data`,
-        },
-      })
-      .then((res) => {
-        setMessageSuccess(res.data.success);
-        setMessage(res.data.message);
-        setShowMessage(true);
-        resetForm();
-      })
-      .catch((err) => {
-        if (err.response.data.message) {
-          setMessage(`${err.response.data.message}`);
-          setMessageSuccess(false);
-          setShowMessage(true);
-        } else {
-          setMessage(`Problem adding product to Database: ${err.message}`);
-          setMessageSuccess(false);
-          setShowMessage(true);
-        }
-      })
-      .then(() => {
-        setSubmitting(false);
-      });
+    productData.imgs = productData.imgs.map((file) => file.path);
+
+    try {
+      await addProductData(userID, productData);
+    } catch (err) {
+      setMessage(err.message);
+      setMessageSuccess(false);
+      setShowMessage(true);
+      return;
+    }
+
+    setMessage("Successfully added product.");
+    setMessageSuccess(true);
+    setShowMessage(true);
+    resetForm();
+    setSubmitting(false);
+    updateProductData();
   }
 
   return (
@@ -64,7 +68,14 @@ export default function AddProductForm({ session, closeModal }) {
         if (!values.title) errors.title = "REQUIRED";
         if (!values.description) errors.description = "REQUIRED";
         if (!values.price && values.price !== 0) errors.price = "REQUIRED";
+        if (
+          !values.price.match(
+            /^\$?([0-9]{1,3},([0-9]{3},)*[0-9]{3}|[0-9]+)(.[0-9][0-9])?$/
+          )
+        )
+          errors.price = "WRONG FORMAT.";
         if (values.price < 0) errors.price = "CAN'T BE NEGATIVE";
+        if (values.price.length === 0) errors.price = "REQUIRED";
         if (!values.production_quantity && values.production_quantity !== 0)
           errors.production_quantity = "REQUIRED";
         if (values.production_quantity < 0)
