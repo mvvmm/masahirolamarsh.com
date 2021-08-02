@@ -51,6 +51,7 @@ export default function Carousel({ productID, imgs }) {
 
       <Image
         src={`${basePath}/${productID}/${imgs[imgIdx]}`}
+        alt={imgs[imgIdx]}
         layout="fill"
         objectFit="contain"
         quality={100}
@@ -60,6 +61,7 @@ export default function Carousel({ productID, imgs }) {
         <div className="w-max mx-auto space-x-2 bg-black">
           {imgs.map((_, idx) => (
             <button
+              key={idx}
               onClick={() => {
                 setImgIdx(idx);
               }}
