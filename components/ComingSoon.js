@@ -3,7 +3,7 @@ import { Instagram } from "@icons-pack/react-simple-icons";
 
 export default function ComingSoon() {
   return (
-    <div class="absolute inset-0">
+    <div className="absolute inset-0">
       <a href="https://www.instagram.com/hirolamarsh">
         <div className="h-full flex flex-wrap content-center text-center">
           <div className="mx-auto">
