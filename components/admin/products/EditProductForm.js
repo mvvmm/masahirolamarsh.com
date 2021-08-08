@@ -2,21 +2,25 @@ import { Formik } from "formik";
 import { useState } from "react";
 import ImgDrop from "../ImgDrop";
 import SpinyIcon from "../SpinyIcon";
-import { nanoid } from "nanoid";
-import { addProductImages } from "../../../lib/aws";
-import { addProductData } from "../../../lib/db";
+import { editProductImages } from "../../../lib/aws";
+import { editProductData } from "../../../lib/db";
+// import { editProductData } from "../../../lib/db";
 
-export default function AddProductForm({ session, updateProductData }) {
+export default function EditProductForm({
+  session,
+  closeModal,
+  updateProductData,
+  data,
+}) {
   const [message, setMessage] = useState("");
   const [messageSuccess, setMessageSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
-  async function addProductToDB(values, setSubmitting, resetForm) {
+  async function editProductInDB(values, setSubmitting, resetForm, productID) {
     const userID = session.user.id || null;
-    const productID = nanoid();
 
     try {
-      await addProductImages(userID, productID, values.imgs);
+      await editProductImages(userID, productID, values.imgs);
     } catch (err) {
       setMessage(err.message);
       setMessageSuccess(false);
@@ -26,13 +30,13 @@ export default function AddProductForm({ session, updateProductData }) {
 
     const productData = {
       ...values,
-      productID,
-      dateAdded: Date.parse(new Date()),
     };
-    productData.imgs = productData.imgs.map((file) => file.path);
+    productData.imgs = productData.imgs.map((file) =>
+      typeof file === "string" ? file : file.path
+    );
 
     try {
-      await addProductData(userID, productData);
+      await editProductData(userID, productID, productData);
     } catch (err) {
       setMessage(err.message);
       setMessageSuccess(false);
@@ -40,24 +44,23 @@ export default function AddProductForm({ session, updateProductData }) {
       return;
     }
 
-    setMessage("Successfully added product.");
+    setMessage("Successfully updated product");
     setMessageSuccess(true);
     setShowMessage(true);
-    resetForm();
-    setSubmitting(false);
     updateProductData();
+    return;
   }
 
   return (
     <Formik
       initialValues={{
-        title: "",
-        description: "",
-        price: "0.00",
-        active: false,
-        production_quantity: 0,
-        remaining_quantity: 0,
-        imgs: [],
+        title: data.title,
+        description: data.description,
+        price: data.price,
+        active: data.active,
+        production_quantity: data.production_quantity,
+        remaining_quantity: data.remaining_quantity,
+        imgs: data.imgs,
       }}
       validate={(values) => {
         const errors = {};
@@ -89,7 +92,7 @@ export default function AddProductForm({ session, updateProductData }) {
         return errors;
       }}
       onSubmit={(values, { setSubmitting, resetForm }) =>
-        addProductToDB(values, setSubmitting, resetForm)
+        editProductInDB(values, setSubmitting, resetForm, data.productID)
       }
     >
       {({
@@ -189,6 +192,7 @@ export default function AddProductForm({ session, updateProductData }) {
                     onChange={handleChange}
                     onBlur={handleBlur}
                     value={values.active}
+                    checked={values.active}
                   />
                   <label htmlFor="active" className="ml-2 form-label uppercase">
                     {values.active ? "Active" : "Inactive"}
@@ -240,6 +244,7 @@ export default function AddProductForm({ session, updateProductData }) {
                   setFieldValue={setFieldValue}
                   setFieldTouched={setFieldTouched}
                   values={values}
+                  productID={data.productID}
                 />
                 <p className="form-error">
                   {errors.imgs && touched.imgs && errors.imgs}
@@ -253,7 +258,7 @@ export default function AddProductForm({ session, updateProductData }) {
               >
                 <div className="flex w-max mx-auto">
                   {isSubmitting && <SpinyIcon />}
-                  ADD PRODUCT
+                  UPDATE PRODUCT
                 </div>
               </button>
             </div>

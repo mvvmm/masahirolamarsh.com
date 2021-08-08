@@ -1,10 +1,22 @@
 import { format } from "date-fns";
 import Carousel from "./Carousel";
+import IconButton from "../IconButton";
 
-export default function Product({ data }) {
+export default function Product({ data, openEditModal }) {
   return (
-    <div>
-      <div className="border border-b-0 border-gray-400 p-2 bg-gray-eee text-xs font-bold text-gray-500 space-y-0.5">
+    <div className="group">
+      <div className="relative border border-b-0 border-gray-400 p-2 bg-gray-eee text-xs font-bold text-gray-500 space-y-0.5">
+        <div className="invisible group-hover:visible absolute top-2 right-2">
+          <IconButton
+            label="EDIT"
+            icon="pencil"
+            color="yellow"
+            action={() => {
+              openEditModal(data.productID);
+            }}
+          />
+        </div>
+
         <p>{data.productID}</p>
         <p>{format(new Date(data.dateAdded), "MMMM d, yyyy hh:mm a")}</p>
         <p>

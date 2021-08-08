@@ -6,8 +6,18 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* Space Mono */}
+          {/* Google Fonts Preconnect */}
+
           <link rel="preconnect" href="https://fonts.googleapis.com" />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+          {/* Cormorant Garamond */}
+          <link
+            href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
+          />
+
+          {/* Space Mono */}
           <link
             href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
             rel="stylesheet"
@@ -21,7 +31,7 @@ export default class MyDocument extends Document {
           {/* <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></Script>
           <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></Script> */}
         </Head>
-        <body>
+        <body className="font-mono">
           <Main />
           <NextScript />
         </body>

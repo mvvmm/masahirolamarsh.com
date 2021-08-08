@@ -2,9 +2,27 @@ import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import ImgDropImg from "./ImgDropImg";
 
-export default function ImgDrop({ setFieldValue, setFieldTouched, values }) {
+export default function ImgDrop({
+  setFieldValue,
+  setFieldTouched,
+  values,
+  productID,
+}) {
   const onDrop = useCallback(
     (droppedFiles) => {
+      droppedFiles.map((file) => {
+        values.imgs.map((img, idx) => {
+          if (typeof img === "string") {
+            if (file.path === img) {
+              values.imgs.splice(idx, 1);
+            }
+          } else {
+            if (file.path === img.path) {
+              values.imgs.splice(idx, 1);
+            }
+          }
+        });
+      });
       setFieldTouched("imgs", true);
       setFieldValue("imgs", [...values.imgs, ...droppedFiles]);
     },
@@ -39,10 +57,11 @@ export default function ImgDrop({ setFieldValue, setFieldTouched, values }) {
         <div className="mt-8">
           {values.imgs.map((file) => (
             <ImgDropImg
-              key={file.name}
+              key={typeof file === "string" ? file : file.name}
               file={file}
               setFieldValue={setFieldValue}
               values={values}
+              productID={productID}
             />
           ))}
         </div>

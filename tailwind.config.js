@@ -4,6 +4,10 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontFamily: {
+        garamond: ['"Cormorant Garamond"'],
+        mono: ['"Space Mono"'],
+      },
       colors: {
         gray: {
           eee: "#EEEEEE",
@@ -12,7 +16,9 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      animation: ["group-hover"],
+    },
   },
   plugins: [
     require("@tailwindcss/custom-forms"),

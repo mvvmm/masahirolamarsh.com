@@ -1,11 +1,11 @@
 import Carousel from "./Carousel";
 
-export default function Store() {
+export default function Store({ productData }) {
   return (
     <>
       <div className="py-8 bg-gray-eee mx-4 lg:mx-8">
         <div className="bg-black -mx-4 lg:-mx-8 text-white p-4">
-          <Carousel />
+          <Carousel productData={productData} />
         </div>
       </div>
       <div className="text-center mb-4">

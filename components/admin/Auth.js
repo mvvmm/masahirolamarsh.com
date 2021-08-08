@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 export default function Auth({ session, children }) {
   const router = useRouter();
   return (
-    <div className="max-w-screen-xl p-8 mx-auto">
+    <div className="max-w-screen-xl p-4 md:p-8 mx-auto">
       <div>
         {session ? (
           session.user.role === "admin" ? (

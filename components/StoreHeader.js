@@ -25,11 +25,9 @@ export default function StoreHeader({ session }) {
             </div>
           </Link>
         </div>
-        {session && (
-          <div className="mt-2 text-center border border-black text-sm">
-            {session.user.name}
-          </div>
-        )}
+        <div className="mt-2 text-center border border-black text-sm">
+          {session ? session.user.name : "..."}
+        </div>
       </div>
     </div>
   );

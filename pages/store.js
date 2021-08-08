@@ -1,23 +1,23 @@
 import Header from "../components/Header";
 import Store from "../components/Store";
 import StoreHeader from "../components/StoreHeader";
-import { getSession, useSession } from "next-auth/client";
+import { useSession } from "next-auth/client";
+import { getAllActiveProducts } from "../lib/db";
 
-export default function Home({ session }) {
+export default function Home({ productData }) {
+  const [session, isLoading] = useSession();
   return (
-    <h1>
+    <div>
       <Header />
       <StoreHeader session={session} />
-      <Store />
-    </h1>
+      <Store productData={productData} />
+    </div>
   );
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession(context);
+  const productData = await getAllActiveProducts();
   return {
-    props: {
-      session,
-    },
+    props: { productData },
   };
 }

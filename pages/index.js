@@ -1,9 +1,10 @@
 import Link from "next/link";
+import ComingSoon from "../components/ComingSoon";
 
 export default function Home() {
   return (
-    <Link href="/store">
-      <a>go to store!!!</a>
-    </Link>
+    <div className="h-screen">
+      <ComingSoon />
+    </div>
   );
 }

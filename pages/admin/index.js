@@ -6,10 +6,10 @@ export default function admin({ session }) {
   return (
     <Auth session={session}>
       <h1 className="border-b text-3xl mb-4">ADMIN PANEL</h1>
-      <div className="flex flex-wrap space-x-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-x-12">
         <Link href="/admin/product">
           <a>
-            <div className="group shadow-lg border p-4 w-96">
+            <div className="group shadow-lg border p-4">
               <h1 className="text-2xl font-bold mb-8 transition group-hover:translate-x-1">
                 Product
               </h1>
