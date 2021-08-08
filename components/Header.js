@@ -27,7 +27,7 @@ export default function Header() {
             <a>
               <Image
                 className="cursor-pointer"
-                src="/img/thumb/black.png"
+                src="https://cdn.masahirolamarsh.com/assets/img/thumb/black.webp"
                 alt="Masahiro LaMarsh Corp Logo"
                 width={75}
                 height={75}

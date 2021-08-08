@@ -8,7 +8,7 @@ export default function ComingSoon() {
         <div className="h-full flex flex-wrap content-center text-center">
           <div className="mx-auto">
             <Image
-              src="/img/coming-soon1.jpg"
+              src="https://cdn.masahirolamarsh.com/assets/img/coming-soon/coming-soon.webp"
               width={642}
               height={258}
               alt="It's called F A M I L Y"
