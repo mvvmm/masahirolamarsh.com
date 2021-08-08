@@ -54,7 +54,7 @@ export default function Carousel({ productID, imgs }) {
         alt={imgs[imgIdx]}
         layout="fill"
         objectFit="contain"
-        quality={100}
+        loading="eager"
       />
 
       <div className="absolute bottom-10 w-full invisible group-hover:visible">
