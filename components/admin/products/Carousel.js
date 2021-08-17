@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { useState } from "react";
 import {
   DotFillIcon,
@@ -6,6 +5,7 @@ import {
   ChevronRightIcon,
   ChevronLeftIcon,
 } from "@primer/octicons-react";
+import CarouselImg from "./CarouselImg";
 
 export default function Carousel({ productID, imgs }) {
   const basePath = "https://cdn.masahirolamarsh.com/products";
@@ -49,12 +49,9 @@ export default function Carousel({ productID, imgs }) {
         </button>
       </div>
 
-      <Image
+      <CarouselImg
         src={`${basePath}/${productID}/${imgs[imgIdx]}`}
         alt={imgs[imgIdx]}
-        layout="fill"
-        objectFit="contain"
-        loading="eager"
       />
 
       <div className="absolute bottom-10 w-full invisible group-hover:visible">
