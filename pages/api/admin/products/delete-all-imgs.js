@@ -1,5 +1,5 @@
 import { isAdmin } from "../../../../lib/auth";
-import { deleteProductImages } from "../../../../lib/aws";
+import { deleteAllProductImages } from "../../../../lib/aws";
 
 export default async function handler(req, res) {
   const userID = req.query.userID;
@@ -10,7 +10,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    await deleteProductImages(productID);
+    await deleteAllProductImages(productID);
   } catch (err) {
     console.log(
       `Problem deleting product images. Product ID: ${productID}, ${err}`
