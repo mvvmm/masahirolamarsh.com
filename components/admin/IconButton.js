@@ -1,4 +1,9 @@
-import { PlusIcon, PencilIcon, RefreshIcon } from "@heroicons/react/outline";
+import {
+  PlusIcon,
+  PencilIcon,
+  RefreshIcon,
+  TrashIcon,
+} from "@heroicons/react/outline";
 
 export default function IconButton({
   label,
@@ -42,6 +47,7 @@ export default function IconButton({
         {
           plus: <PlusIcon className="w-4 h-4 mx-auto" />,
           pencil: <PencilIcon className="w-4 h-4 mx-auto" />,
+          trash: <TrashIcon className="w-4 h-4 mx-auto" />,
           refresh: (
             <RefreshIcon
               className={`${

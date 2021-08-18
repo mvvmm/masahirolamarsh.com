@@ -1,9 +1,14 @@
 import { getBytes } from "../../lib/Img";
 import { XIcon } from "@heroicons/react/outline";
 
-export default function ImgDropImg({ file, setFieldValue, values, productID }) {
+export default function ImgDropImg({
+  file,
+  setFieldValue,
+  values,
+  ID,
+  collection,
+}) {
   function deleteItem() {
-    console.log("yes");
     const imgs = values.imgs.filter((img) => img !== file);
     setFieldValue("imgs", imgs);
   }
@@ -14,7 +19,7 @@ export default function ImgDropImg({ file, setFieldValue, values, productID }) {
           {typeof file === "string" ? (
             <img
               className="object-contain"
-              src={`https://cdn.masahirolamarsh.com/products/${productID}/${file}`}
+              src={`https://cdn.masahirolamarsh.com/${collection}/${ID}/${file}`}
               alt={file}
             />
           ) : (

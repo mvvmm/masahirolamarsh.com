@@ -17,6 +17,17 @@ export default function admin({ session }) {
             </div>
           </a>
         </Link>
+
+        <Link href="/admin/archive">
+          <a>
+            <div className="group shadow-lg border p-4">
+              <h1 className="text-2xl font-bold mb-8 transition group-hover:translate-x-1">
+                Archive
+              </h1>
+              <p>Manage your archive.</p>
+            </div>
+          </a>
+        </Link>
       </div>
     </Auth>
   );

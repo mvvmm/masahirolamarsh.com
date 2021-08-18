@@ -1,17 +1,17 @@
 import { XIcon } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import EditProductForm from "./EditProductForm";
+import EditArchiveForm from "./EditArchiveForm";
 
-export default function EditProductModal({
+export default function EditArchiveModal({
   session,
   closeModal,
-  editProductModalOpen,
-  updateProductData,
+  editModalOpen,
+  updateArchiveData,
   editModalData,
 }) {
   return (
-    <Transition appear show={editProductModalOpen} as={Fragment}>
+    <Transition appear show={editModalOpen} as={Fragment}>
       <Dialog
         as="div"
         className="fixed inset-0 z-10 overflow-y-auto"
@@ -52,7 +52,7 @@ export default function EditProductModal({
                 as="h3"
                 className="text-lg font-medium leading-6 text-gray-900 border-black border-b"
               >
-                EDIT PRODUCT
+                EDIT ARCHIVE
               </Dialog.Title>
               <button
                 type="button"
@@ -62,10 +62,10 @@ export default function EditProductModal({
                 <XIcon className="w-5 h-5" />
               </button>
               <div className="mt-2">
-                <EditProductForm
+                <EditArchiveForm
                   session={session}
                   closeModal={closeModal}
-                  updateProductData={updateProductData}
+                  updateArchiveData={updateArchiveData}
                   data={editModalData}
                 />
               </div>

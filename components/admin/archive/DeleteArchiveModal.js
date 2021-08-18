@@ -1,21 +1,21 @@
 import { XIcon } from "@heroicons/react/outline";
 import { Dialog, Transition } from "@headlessui/react";
 import { Fragment } from "react";
-import EditProductForm from "./EditProductForm";
+import DeleteArchiveForm from "./DeleteArchiveForm";
 
-export default function EditProductModal({
+export default function DeleteArchiveModal({
   session,
-  closeModal,
-  editProductModalOpen,
-  updateProductData,
-  editModalData,
+  closeDeleteModal,
+  deleteModalOpen,
+  updateArchiveData,
+  deleteModalData,
 }) {
   return (
-    <Transition appear show={editProductModalOpen} as={Fragment}>
+    <Transition appear show={deleteModalOpen} as={Fragment}>
       <Dialog
         as="div"
         className="fixed inset-0 z-10 overflow-y-auto"
-        onClose={closeModal}
+        onClose={closeDeleteModal}
       >
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
         <div className="min-h-screen px-4 text-center">
@@ -52,21 +52,21 @@ export default function EditProductModal({
                 as="h3"
                 className="text-lg font-medium leading-6 text-gray-900 border-black border-b"
               >
-                EDIT PRODUCT
+                PERMANENTLY DELETE FROM ARCHIVE
               </Dialog.Title>
               <button
                 type="button"
                 className="absolute top-4 right-2 p-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ring-black hover:animate-spin"
-                onClick={closeModal}
+                onClick={closeDeleteModal}
               >
                 <XIcon className="w-5 h-5" />
               </button>
               <div className="mt-2">
-                <EditProductForm
+                <DeleteArchiveForm
                   session={session}
-                  closeModal={closeModal}
-                  updateProductData={updateProductData}
-                  data={editModalData}
+                  closeDeleteModal={closeDeleteModal}
+                  updateArchiveData={updateArchiveData}
+                  data={deleteModalData}
                 />
               </div>
             </div>

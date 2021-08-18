@@ -1,4 +1,4 @@
-import { s3 } from "../../../lib/aws";
+import { s3 } from "../../../../lib/aws";
 
 export default async function handler(req, res) {
   const productID = req.query.productID;

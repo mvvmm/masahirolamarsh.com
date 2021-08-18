@@ -6,7 +6,8 @@ export default function ImgDrop({
   setFieldValue,
   setFieldTouched,
   values,
-  productID,
+  ID,
+  collection,
 }) {
   const onDrop = useCallback(
     (droppedFiles) => {
@@ -61,7 +62,8 @@ export default function ImgDrop({
               file={file}
               setFieldValue={setFieldValue}
               values={values}
-              productID={productID}
+              ID={ID}
+              collection={collection}
             />
           ))}
         </div>

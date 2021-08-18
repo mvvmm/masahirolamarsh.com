@@ -4,14 +4,8 @@ import ImgDrop from "../ImgDrop";
 import SpinyIcon from "../SpinyIcon";
 import { editProductImages } from "../../../lib/aws";
 import { editProductData } from "../../../lib/db";
-// import { editProductData } from "../../../lib/db";
 
-export default function EditProductForm({
-  session,
-  closeModal,
-  updateProductData,
-  data,
-}) {
+export default function EditProductForm({ session, updateProductData, data }) {
   const [message, setMessage] = useState("");
   const [messageSuccess, setMessageSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
@@ -244,7 +238,8 @@ export default function EditProductForm({
                   setFieldValue={setFieldValue}
                   setFieldTouched={setFieldTouched}
                   values={values}
-                  productID={data.productID}
+                  ID={data.productID}
+                  collection="products"
                 />
                 <p className="form-error">
                   {errors.imgs && touched.imgs && errors.imgs}

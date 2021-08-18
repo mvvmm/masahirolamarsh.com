@@ -240,6 +240,7 @@ export default function AddProductForm({ session, updateProductData }) {
                   setFieldValue={setFieldValue}
                   setFieldTouched={setFieldTouched}
                   values={values}
+                  collection="products"
                 />
                 <p className="form-error">
                   {errors.imgs && touched.imgs && errors.imgs}
