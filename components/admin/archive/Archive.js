@@ -1,6 +1,6 @@
-import { format } from "date-fns";
 import Carousel from "./Carousel";
 import IconButton from "../IconButton";
+import moment from "moment";
 
 export default function Archive({ data, openEditModal, openDeleteModal }) {
   return (
@@ -26,6 +26,7 @@ export default function Archive({ data, openEditModal, openDeleteModal }) {
         </div>
 
         <p>{data.archiveID}</p>
+        <p>{moment(new Date(data.date)).format("MMMM Do, YYYY")}</p>
       </div>
       <Carousel archiveID={data.archiveID} imgs={data.imgs} />
 

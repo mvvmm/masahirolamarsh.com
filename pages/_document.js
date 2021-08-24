@@ -9,7 +9,11 @@ export default class MyDocument extends Document {
           {/* Google Fonts Preconnect */}
 
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
+          <link
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
+          />
 
           {/* Cormorant Garamond */}
           <link
@@ -31,7 +35,7 @@ export default class MyDocument extends Document {
           {/* <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></Script>
           <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></Script> */}
         </Head>
-        <body className="font-mono">
+        <body className="font-garamond">
           <Main />
           <NextScript />
         </body>
