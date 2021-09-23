@@ -14,8 +14,11 @@ export default function EditArchiveForm({ session, updateArchiveData, data }) {
   const [messageSuccess, setMessageSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
-  useEffect(async () => {
-    setTypes(await getTypes());
+  useEffect(() => {
+    async function getTypes() {
+      setTypes(await getTypes());
+    }
+    getTypes();
   }, []);
 
   async function editArchiveInDB(values, setSubmitting, resetForm, archiveID) {
