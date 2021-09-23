@@ -6,6 +6,15 @@
   * {
     -webkit-tap-highlight-color: transparent;
   }
+
+  canvas, html, body {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  canvas::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 @layer components {

@@ -32,6 +32,14 @@ export default function Archive({ data, openEditModal, openDeleteModal }) {
 
       <div className="p-2 uppercase space-y-1 border border-t-0 border-gray-400 h-auto">
         <h2 className="text-2xl font-bold">{data.title}</h2>
+        {data.type !== "" && (
+          <h3 className="text-sm font-bold">
+            {data.type}{" "}
+            {data.recipient !== "" && data.recipient !== undefined
+              ? `for ${data.recipient}`
+              : ""}
+          </h3>
+        )}
         <p className="text-sm font-bold text-gray-600">{data.description}</p>
       </div>
     </div>

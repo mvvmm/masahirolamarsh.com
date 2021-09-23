@@ -1,5 +1,5 @@
 import { Formik } from "formik";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ImgDrop from "../ImgDrop";
 import SpinyIcon from "../SpinyIcon";
 import { nanoid } from "nanoid";
@@ -7,11 +7,17 @@ import { addArchiveImages } from "../../../lib/aws";
 import { addArchiveData } from "../../../lib/db";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { getTypes } from "../../../lib/db";
 
 export default function AddArchiveForm({ session, updateArchiveData }) {
+  const [types, setTypes] = useState([]);
   const [message, setMessage] = useState("");
   const [messageSuccess, setMessageSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
+
+  useEffect(async () => {
+    setTypes(await getTypes());
+  }, []);
 
   async function addArchiveToDB(values, setSubmitting, resetForm) {
     const userID = session.user.id || null;
@@ -56,6 +62,8 @@ export default function AddArchiveForm({ session, updateArchiveData }) {
         title: "",
         description: "",
         date: new Date(),
+        type: "",
+        recipient: "",
         imgs: [],
       }}
       validate={(values) => {
@@ -150,6 +158,42 @@ export default function AddArchiveForm({ session, updateArchiveData }) {
                     touched.description &&
                     errors.description}
                 </p>
+              </div>
+
+              <div className="mt-1">
+                <label htmlFor="type" className="form-label">
+                  TYPE
+                </label>
+                <select
+                  className="w-full form-field"
+                  name="type"
+                  value={values.type}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                >
+                  <option value="" disabled selected>
+                    Select Type
+                  </option>
+                  {types.map((type) => (
+                    <option value={type} label={type} key={type} />
+                  ))}
+                </select>
+                <p className="form-error"></p>
+              </div>
+
+              <div className="mt-1">
+                <label htmlFor="recipient" className="form-label">
+                  RECIPIENT
+                </label>
+                <input
+                  className="w-full form-field"
+                  type="text"
+                  name="recipient"
+                  onChange={handleChange}
+                  onBlur={handleBlur}
+                  value={values.recipient}
+                />
+                <p className="form-error"></p>
               </div>
 
               <div className="mt-1">

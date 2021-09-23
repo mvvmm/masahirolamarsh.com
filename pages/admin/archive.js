@@ -3,10 +3,11 @@ import { getSession } from "next-auth/client";
 import { useState, useEffect } from "react";
 import AddArchiveModal from "../../components/admin/archive/AddArchiveModal";
 import ArchiveSection from "../../components/admin/archive/ArchiveSection";
-import { getAllArchiveData, getArchiveData } from "../../lib/db";
+import { getAllArchiveData } from "../../lib/db";
 import IconButton from "../../components/admin/IconButton";
 import EditArchiveModal from "../../components/admin/archive/EditArchiveModal";
 import DeleteArchiveModal from "../../components/admin/archive/DeleteArchiveModal";
+import { getTypes } from "../../lib/db";
 
 export default function Archive({ session }) {
   let [archiveData, setArchiveData] = useState([]);
@@ -49,8 +50,8 @@ export default function Archive({ session }) {
 
   async function updateArchiveData() {
     setArchiveDataIsUpdating(true);
-    const data = await getAllArchiveData();
-    setArchiveData(data);
+    const archive = await getAllArchiveData();
+    setArchiveData(archive);
     setArchiveDataIsUpdating(false);
   }
 
