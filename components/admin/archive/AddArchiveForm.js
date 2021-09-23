@@ -15,8 +15,11 @@ export default function AddArchiveForm({ session, updateArchiveData }) {
   const [messageSuccess, setMessageSuccess] = useState(false);
   const [showMessage, setShowMessage] = useState(false);
 
-  useEffect(async () => {
-    setTypes(await getTypes());
+  useEffect(() => {
+    async function getTypesFromFirebase() {
+      setTypes(await getTypes());
+    }
+    getTypesFromFirebase();
   }, []);
 
   async function addArchiveToDB(values, setSubmitting, resetForm) {

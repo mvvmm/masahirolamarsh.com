@@ -15,10 +15,10 @@ export default function EditArchiveForm({ session, updateArchiveData, data }) {
   const [showMessage, setShowMessage] = useState(false);
 
   useEffect(() => {
-    async function getTypes() {
+    async function getTypesFromFirebase() {
       setTypes(await getTypes());
     }
-    getTypes();
+    getTypesFromFirebase();
   }, []);
 
   async function editArchiveInDB(values, setSubmitting, resetForm, archiveID) {
