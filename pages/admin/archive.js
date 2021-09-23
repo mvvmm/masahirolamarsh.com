@@ -7,7 +7,6 @@ import { getAllArchiveData } from "../../lib/db";
 import IconButton from "../../components/admin/IconButton";
 import EditArchiveModal from "../../components/admin/archive/EditArchiveModal";
 import DeleteArchiveModal from "../../components/admin/archive/DeleteArchiveModal";
-import { getTypes } from "../../lib/db";
 
 export default function Archive({ session }) {
   let [archiveData, setArchiveData] = useState([]);

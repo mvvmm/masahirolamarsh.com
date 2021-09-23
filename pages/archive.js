@@ -3,7 +3,7 @@ import NavBar from "../components/NavBar";
 import { getAllArchiveData } from "../lib/db";
 import { useEffect } from "react";
 
-export default function archive({ archiveData }) {
+export default function Archive({ archiveData }) {
   useEffect(() => {
     const P5 = require("p5");
 
