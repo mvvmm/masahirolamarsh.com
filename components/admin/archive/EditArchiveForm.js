@@ -165,17 +165,27 @@ export default function EditArchiveForm({ session, updateArchiveData, data }) {
                   TYPE
                 </label>
                 <select
-                  className="w-full form-field"
+                  className="w-full form-field bg-white text-black"
                   name="type"
                   value={values.type}
                   onChange={handleChange}
                   onBlur={handleBlur}
                 >
-                  <option value="" disabled selected>
+                  <option
+                    className="bg-white text-black"
+                    value=""
+                    disabled
+                    selected
+                  >
                     Select Type
                   </option>
                   {types.map((type) => (
-                    <option value={type} label={type} key={type} />
+                    <option
+                      className="bg-white text-black"
+                      value={type}
+                      label={type}
+                      key={type}
+                    />
                   ))}
                 </select>
                 <p className="form-error"></p>

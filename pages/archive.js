@@ -37,6 +37,8 @@ export default function Archive({ archiveData }) {
           this.y = y;
           this.w = w;
           this.h = h;
+          this.x_offset = p.random(0, 100);
+          this.y_offset = p.random(0, 100);
           this.showing = true;
         }
 
@@ -44,7 +46,7 @@ export default function Archive({ archiveData }) {
           if (this.showing) {
             p.push();
             p.translate(this.x - X_OFFSET, this.y - Y_OFFSET);
-            p.image(this.data.imageData, 0, 0, W - 100, H - 100);
+            p.image(this.data.imageData, 0, 0, W, H);
             p.pop();
           }
         }
