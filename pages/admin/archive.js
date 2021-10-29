@@ -56,6 +56,15 @@ export default function Archive({ session }) {
 
   return (
     <Auth session={session}>
+      <style jsx global>
+        {`
+          html,
+          body {
+            background: white;
+            color: black;
+          }
+        `}
+      </style>
       <DeleteArchiveModal
         session={session}
         closeDeleteModal={closeDeleteModal}

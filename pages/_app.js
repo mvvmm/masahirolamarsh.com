@@ -1,13 +1,14 @@
 import "../styles/globals.css";
 import { Provider as AuthProvider } from "next-auth/client";
-import Head from "next/head";
-import Script from "next/script";
+import { MobileMenuProvider } from "../contexts/MobileMenu";
 
 function MyApp({ Component, pageProps }) {
   return (
     <>
       <AuthProvider>
-        <Component {...pageProps} />
+        <MobileMenuProvider>
+          <Component {...pageProps} />
+        </MobileMenuProvider>
       </AuthProvider>
     </>
   );

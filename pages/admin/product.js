@@ -45,6 +45,15 @@ export default function Product({ session }) {
 
   return (
     <Auth session={session}>
+      <style jsx global>
+        {`
+          html,
+          body {
+            background: white;
+            color: black;
+          }
+        `}
+      </style>
       <EditProductModal
         session={session}
         closeModal={closeEditModal}

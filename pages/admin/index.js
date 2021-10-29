@@ -5,6 +5,15 @@ import Auth from "../../components/admin/Auth";
 export default function admin({ session }) {
   return (
     <Auth session={session}>
+      <style jsx global>
+        {`
+          html,
+          body {
+            background: white;
+            color: black;
+          }
+        `}
+      </style>
       <h1 className="border-b text-3xl mb-4">ADMIN PANEL</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 space-x-12">
         <Link href="/admin/product">
