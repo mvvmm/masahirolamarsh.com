@@ -1,5 +1,4 @@
 import { useMobileMenu } from "../contexts/MobileMenu";
-import Link from "next/link";
 import { useRouter } from "next/router";
 
 export default function MobileMenu({ links }) {
@@ -8,6 +7,7 @@ export default function MobileMenu({ links }) {
 
   function handleClick(link) {
     router.push(`/${link}`);
+    console.log(router.isReady);
     mobileMenu.setIsOpen(false);
   }
 

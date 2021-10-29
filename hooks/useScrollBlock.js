@@ -8,7 +8,7 @@ const safeDocument = typeof document !== "undefined" ? document : {};
  * Usage:
  * const [blockScroll, allowScroll] = useScrollBlock();
  */
-const useScrollBlock = () => {
+export default function useScrollBlock() {
   const scrollBlocked = useRef();
   const html = safeDocument.documentElement;
   const { body } = safeDocument;
@@ -50,6 +50,4 @@ const useScrollBlock = () => {
   };
 
   return [blockScroll, allowScroll];
-};
-
-export default useScrollBlock;
+}

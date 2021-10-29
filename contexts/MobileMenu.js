@@ -12,7 +12,7 @@ export function MobileMenuProvider({ children }) {
   const [blockScroll, allowScroll] = useScrollBlock();
 
   useEffect(() => {
-    isOpen ? blockScroll() : allowScroll();
+    isOpen ? blockScroll : allowScroll;
   }, [isOpen]);
   const value = { isOpen, setIsOpen };
 
