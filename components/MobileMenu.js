@@ -7,7 +7,7 @@ export default function MobileMenu({ links }) {
   const mobileMenu = useMobileMenu();
 
   function handleClick(link) {
-    router.push(link);
+    router.push(`/${link}`);
     mobileMenu.setIsOpen(false);
   }
 
