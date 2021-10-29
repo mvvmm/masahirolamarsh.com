@@ -16,7 +16,7 @@ export function ArchiveProvider({ archiveData, types, children }) {
       const newData = archiveData.filter((el) => el.type === filterBy);
       setData(newData);
     }
-    window.scrollTop;
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
   }, [filterBy]);
 
   const value = { filterBy, setFilterBy, data, types };
