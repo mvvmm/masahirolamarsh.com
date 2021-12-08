@@ -15,6 +15,7 @@ export default function PieceModalBody({
         <div className="flex flex-row space-x-4 mx-auto">
           {data.imgs.map((img, i) => (
             <img
+              key={img}
               className={` ${
                 activeImageIdx == i && "border border-white"
               } hover:scale-105 cursor-pointer rounded-sm`}
