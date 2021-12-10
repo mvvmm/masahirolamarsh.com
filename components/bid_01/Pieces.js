@@ -14,8 +14,10 @@ export default function Pieces() {
         "https://cdn.masahirolamarsh.com/bid_01/1/3.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/4.webp",
       ],
-      title: "piece 1",
-      description: "piece 1 description",
+      title: "Sculpture_01_suc4_a44",
+      description:
+        "This piece repesents the birth of my first born child. Ugly as fuck. hard to watch. I hate babies, they look so fucking ugly...",
+      reserve: 200,
     },
     {
       cover_img: "https://cdn.masahirolamarsh.com/bid_01/2/1.webp",
@@ -25,6 +27,7 @@ export default function Pieces() {
       ],
       title: "piece 2",
       description: "piece 2 description",
+      reserve: 200,
     },
     {
       cover_img: "https://cdn.masahirolamarsh.com/bid_01/3/1.webp",
@@ -34,12 +37,12 @@ export default function Pieces() {
       ],
       title: "piece 3",
       description: "piece 3 description",
+      reserve: 200,
     },
   ];
 
   const [activeData, setActiveData] = useState(pieceData[0]);
   const [activeImageIdx, setActiveImageIdx] = useState(0);
-  const windowSize = useWindowSize();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -64,10 +67,10 @@ export default function Pieces() {
 
   return (
     <>
-      <Transition show={windowSize.width >= 1024 && isOpen} as={Fragment}>
+      <Transition show={isOpen} as={Fragment}>
         <Dialog
           as="div"
-          className="fixed inset-0 z-10 overflow-y-auto hidden lg:block"
+          className="fixed inset-0 z-30 overflow-y-auto"
           onClose={closeModal}
         >
           <div className="min-h-screen px-4 text-center">
@@ -97,57 +100,17 @@ export default function Pieces() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl rounded-2xl border border-gray-900">
+              <div className="inline-block p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl border border-gray-500">
                 <PieceModalBody
                   data={activeData}
                   activeImageIdx={activeImageIdx}
                   setActiveImageIdx={setActiveImageIdx}
+                  closeModal={closeModal}
                 />
               </div>
             </Transition.Child>
           </div>
         </Dialog>
-      </Transition>
-
-      <Transition
-        show={windowSize.width < 1024 && isOpen}
-        className="lg:hidden"
-      >
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-300"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
-          <div className="fixed inset-0 bg-black bg-opacity-80 transition-opacity" />
-        </Transition.Child>
-        <Transition.Child
-          enter="transition-all duration-700"
-          enterFrom="-bottom-full"
-          enterTo="bottom-0"
-          entered="bottom-0"
-          leave="transition-all duration-700"
-          leaveFrom="bottom-0"
-          leaveTo="-bottom-full"
-          className="bg-black border-t-2 rounded-t-3xl border-gray-900 fixed w-full h-5/6 z-50 bottom-0 p-8 overscroll-auto"
-        >
-          <>
-            <div
-              className="absolute top-5 right-5 w-6 group cursor-pointer"
-              onClick={closeModal}
-            >
-              <XIcon className="text-gray-500 group-hover:text-white group-focus:text-white group-active:text-white" />
-            </div>
-            <PieceModalBody
-              data={activeData}
-              activeImageIdx={activeImageIdx}
-              setActiveImageIdx={setActiveImageIdx}
-            />
-          </>
-        </Transition.Child>
       </Transition>
 
       <div className="flex flex-col divide-y lg:flex-row lg:divide-y-0 content-center align m-8 max-w-screen-2xl mx-auto">
@@ -163,6 +126,7 @@ export default function Pieces() {
               className="transition-transform duration-700 group-hover:scale-105 group-hover:cursor-pointer"
               onClick={() => {
                 setActiveData(pieceData[i]);
+                setActiveImageIdx(0);
                 openModal();
               }}
             />

@@ -72,7 +72,7 @@ export default function Newsletter() {
                     htmlFor="email"
                     className="block truncate absolute left-0 -top-2.5 uppercase text-xs text-gray-500 transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:text-gray-600 peer-placeholder-shown:top-3 peer-focus:-top-2.5 peer-focus:text-xs peer-focus:text-gray-500 hover:cursor-text"
                   >
-                    Email address
+                    newsletter: Enter email
                   </label>
                 </div>
               </div>

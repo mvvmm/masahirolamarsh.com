@@ -1,8 +1,8 @@
 export default function Bid01Header() {
   return (
     <div className="mx-auto mt-12 max-w-screen-md  mb-4">
-      <h1 className="text-7xl uppercase underline text-center">Bid_01:</h1>
-      <p className="m-4 text-lg text-justify leading-tight text-gray-300">
+      <h1 className="text-7xl uppercase underline text-center">Bid I:</h1>
+      <p className="m-4 text-lg text-justify leading-tight text-gray-300 font-garamond">
         These three pieces are presented as sculptures. To keep things fair,
         this is a blind auction lasting 1 week. The is a minimum bid, and any
         value beyond is an investment in my success. All proceeds will go

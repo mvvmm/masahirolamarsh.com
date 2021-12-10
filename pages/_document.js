@@ -32,6 +32,12 @@ export default class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
           ></link>
+
+          <link
+            href="https://fonts.googleapis.com/css2?family=Cherish&family=Estonia&family=Fondamento:ital@0;1&family=Italianno&family=Kings&family=Nothing+You+Could+Do&family=Quintessential&family=Tangerine:wght@400;700&display=swap"
+            rel="stylesheet"
+          />
+
           {/* <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></Script>
           <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></Script> */}
         </Head>
