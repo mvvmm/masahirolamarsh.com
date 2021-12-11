@@ -1,3 +1,4 @@
+import { useState } from "react";
 import BidInput from "./BidInput";
 
 export default function PieceModalBody({
@@ -6,6 +7,14 @@ export default function PieceModalBody({
   setActiveImageIdx,
   closeModal,
 }) {
+  const [hasBid, setHasBid] = useState(false);
+  const [bidOpen, setBidOpen] = useState(false);
+
+  function bidMade() {
+    setBidOpen(false);
+    setHasBid(true);
+  }
+
   return (
     <>
       <div
@@ -15,7 +24,7 @@ export default function PieceModalBody({
         X
       </div>
       <div className="grid grid-cols-1 lg:grid-cols-2">
-        <div className="flex flex-col">
+        <div className="flex flex-col mb-6 lg:mb-0">
           <div className="mb-4">
             <img
               src={data.imgs[activeImageIdx]}
@@ -39,13 +48,52 @@ export default function PieceModalBody({
             ))}
           </div>
         </div>
-        <div className="p-4 flex flex-col justify-between">
-          <div className="mb-8">
-            <h1 className="text-4xl mb-4">{data.title}</h1>
-            <p>{data.description}</p>
+        <div className="p-4 flex flex-col justify-between lg:pl-12">
+          <div className="mb-8 lg:pt-8">
+            <h1 className="text-4xl mb-6 font-bold text-center">
+              {data.title}
+            </h1>
+            <h2 className="text-xl mb-4">
+              Reserve:{" "}
+              <span className="text-base">
+                <span className="ml-2">$</span>
+                {data.reserve} USD
+              </span>
+            </h2>
+            <h2 className="text-xl">Materials</h2>
+            <ul className="mb-4">
+              {data.materials.map((material) => (
+                <li className="ml-6">
+                  <span className="mr-2 text-gray-600">x</span> {material}
+                </li>
+              ))}
+            </ul>
+            <h2 className="text-xl">Includes</h2>
+            <ul className="mb-4">
+              {data.includes.map((include) => (
+                <li className="ml-6">
+                  <span className="mr-2 text-gray-600">x</span> {include}
+                </li>
+              ))}
+            </ul>
           </div>
-          <div className="border-2 border-gray-500 p-4">
-            <BidInput data={data} />
+          <div>
+            {!hasBid && !bidOpen && (
+              <button
+                class={`$inline-flex items-center justify-center text-center w-full bg-black border border-white font-bold py-2 px-4 rounded hover:bg-green-500`}
+                onClick={() => {
+                  setBidOpen(true);
+                }}
+              >
+                Bid
+              </button>
+            )}
+            {bidOpen && <BidInput data={data} bidMade={bidMade} />}
+            {hasBid && (
+              <h2 className="text-center text-green-500">
+                Bid received. Thank you.
+              </h2>
+            )}
           </div>
         </div>
       </div>

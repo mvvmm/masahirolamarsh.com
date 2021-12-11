@@ -11,7 +11,7 @@ function preventNonNumericalInput(e) {
   if (!charStr.match(/^[0-9,]+$/)) e.preventDefault();
 }
 
-export default function BidInput({ data }) {
+export default function BidInput({ data, bidMade }) {
   const [success, setSuccess] = useState(null);
 
   return (
@@ -33,6 +33,8 @@ export default function BidInput({ data }) {
           ) === 0
         ) {
           errors.bid = "Invalid Currency";
+        } else if (values.bid <= data.reserve) {
+          errors.bid = "Bid must be greater than reserve";
         }
         return errors;
       }}
@@ -40,9 +42,10 @@ export default function BidInput({ data }) {
         const bid = values.bid;
         setTimeout(() => {
           setFieldValue("bid", "");
-          alert(bid);
+          setFieldValue("email", "");
           setSuccess(true);
           setSubmitting(false);
+          bidMade();
         }, 2000);
       }}
     >
@@ -58,18 +61,20 @@ export default function BidInput({ data }) {
       }) => (
         <form
           autoComplete="off"
-          className="mt-6"
           onSubmit={(e) => {
             e.preventDefault();
             handleSubmit();
           }}
         >
-          <div className="pb-12">
-            <label for="email" class="block text-sm font-medium text-gray-500">
+          <div className="mb-4">
+            <label
+              for="email"
+              class="block text-sm font-bold mb-2 text-gray-500"
+            >
               Email
             </label>
             <input
-              className="w-full h-10 border-b-2 border-gray-600 text-white italic text-2xl placeholder-gray-600 focus:outline-none focus:border-gray-50 bg-black placeholder-transparent"
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-black placeholder-gray-600"
               id="email"
               name="email"
               type="text"
@@ -81,13 +86,15 @@ export default function BidInput({ data }) {
               onBlur={handleBlur}
               value={values.email}
             ></input>
+            <small className="pl-2 text-red-500">
+              {errors.email && touched.email && errors.email}
+            </small>
           </div>
-
-          <div className="pb-12">
+          <div className="mb-4">
             <label for="bid" class="block text-sm font-medium text-gray-500">
               Bid
             </label>
-            <div className="relative">
+            <div className="mt-1 relative rounded-md shadow-sm">
               <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                 <span className="sm:text-sm">$</span>
               </div>
@@ -95,7 +102,7 @@ export default function BidInput({ data }) {
                 onKeyPress={(event) => {
                   preventNonNumericalInput(event);
                 }}
-                className="pl-7 w-full peer appearance-none h-10 border-b-2 border-gray-600 text-white italic text-2xl placeholder-gray-600 focus:outline-none focus:border-gray-50 bg-black placeholder-transparent"
+                className="shadow appearance-none border rounded w-full pl-7 pr-12 py-2 text-white leading-tight focus:outline-none focus:shadow-outline bg-black placeholder-gray-600"
                 id="bid"
                 name="bid"
                 type="text"
@@ -113,42 +120,35 @@ export default function BidInput({ data }) {
                 onBlur={handleBlur}
                 value={values.bid}
               ></input>
-
               <div className="absolute inset-y-0 right-0 flex items-center">
                 <label for="currency" class="sr-only">
                   Currency
                 </label>
-                <select
-                  id="currency"
-                  name="currency"
-                  className="focus:ring-indigo-500 focus:border-indigo-500 h-full py-0 pl-2 pr-7 border-transparent bg-transparent text-gray-500 sm:text-sm rounded-md"
-                >
-                  <option>USD</option>
-                  <option>CAD</option>
-                  <option>EUR</option>
-                </select>
+                <span className="pr-4">USD</span>
               </div>
             </div>
+            <small className="pl-2 text-red-500">
+              {errors.bid && touched.bid && errors.bid}
+            </small>
           </div>
-
-          <div className="">
-            hello
-            {typeof errors.bid === "undefined" &&
-              values.bid !== "" &&
-              !isSubmitting && (
-                <div
-                  className="text-gray-600 hover:text-white hover:cursor-pointer"
-                  onClick={handleSubmit}
-                >
-                  <ArrowNarrowRightIcon className="w-6" />
+          <div>
+            <button
+              class={`${
+                Object.keys(errors).length === 0
+                  ? ""
+                  : "opacity-0 cursor-not-allowed"
+              } inline-flex items-center justify-center text-center w-full bg-black border border-white font-bold py-2 px-4 rounded hover:bg-green-500`}
+            >
+              {isSubmitting === true && (
+                <div className="w-4 h-4 mr-2">
+                  <Spinner />
                 </div>
               )}
-            {isSubmitting === true && (
-              <div className="p-0.5">
-                <Spinner />
-              </div>
-            )}
-            {success === true && <CheckIcon className="text-green-500 w-6" />}
+              {success === true && (
+                <CheckIcon className="text-green-500 w-4 h-4 mr-2" />
+              )}
+              Submit bid
+            </button>
           </div>
         </form>
       )}

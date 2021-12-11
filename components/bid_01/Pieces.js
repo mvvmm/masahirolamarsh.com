@@ -14,20 +14,22 @@ export default function Pieces() {
         "https://cdn.masahirolamarsh.com/bid_01/1/3.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/4.webp",
       ],
-      title: "Sculpture_01_suc4_a44",
-      description:
-        "This piece repesents the birth of my first born child. Ugly as fuck. hard to watch. I hate babies, they look so fucking ugly...",
-      reserve: 200,
-    },
-    {
-      cover_img: "https://cdn.masahirolamarsh.com/bid_01/2/1.webp",
-      imgs: [
-        "https://cdn.masahirolamarsh.com/bid_01/2/1.webp",
-        "https://cdn.masahirolamarsh.com/bid_01/2/2.webp",
+      title: "#4 ”I did it for my soul”",
+      materials: [
+        "Concrete base",
+        "Zinc bolts",
+        "Patinaed brass",
+        "Sterling silver",
+        "24 karat gold burnish",
+        "Three black diamonds",
       ],
-      title: "piece 2",
-      description: "piece 2 description",
-      reserve: 200,
+      includes: [
+        "Sculpture",
+        "Replica jewelry piece made to buyers size",
+        "Personalized note about the piece",
+        "World wide shipping",
+      ],
+      reserve: 3000,
     },
     {
       cover_img: "https://cdn.masahirolamarsh.com/bid_01/3/1.webp",
@@ -35,9 +37,43 @@ export default function Pieces() {
         "https://cdn.masahirolamarsh.com/bid_01/3/1.webp",
         "https://cdn.masahirolamarsh.com/bid_01/3/2.webp",
       ],
-      title: "piece 3",
-      description: "piece 3 description",
-      reserve: 200,
+      title: "#5 ”La Caverna”",
+      materials: [
+        "Concrete base",
+        "Zinc bolts",
+        "Patinaed brass",
+        "Sterling silver",
+        "One black diamond",
+      ],
+      includes: [
+        "Sculpture",
+        "Replica jewelry piece made to buyers size",
+        "Personalized note about the piece",
+        "World wide shipping",
+      ],
+      reserve: 1500,
+    },
+    {
+      cover_img: "https://cdn.masahirolamarsh.com/bid_01/2/1.webp",
+      imgs: [
+        "https://cdn.masahirolamarsh.com/bid_01/2/1.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/2/2.webp",
+      ],
+      title: "#6 ”Cavities”",
+      materials: [
+        "Concrete base",
+        "Zinc bolts",
+        "Patinaed brass",
+        "Lazy patina",
+        "Sterling silver",
+      ],
+      includes: [
+        "Sculpture",
+        "Replica jewelry piece made to buyers teeth",
+        "Personalized note about the piece",
+        "World wide shipping",
+      ],
+      reserve: 4000,
     },
   ];
 
