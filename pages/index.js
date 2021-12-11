@@ -10,7 +10,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Masahiro LaMarsh - Bid_01</title>
+        <title>Masahiro LaMarsh</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
         <meta
@@ -20,7 +20,7 @@ export default function Home() {
         />
         <meta
           property="og:title"
-          content={`Masahiro LaMarsh - Bid_01`}
+          content={`Masahiro LaMarsh`}
           key="head-ogtitle"
         />
         <meta
@@ -30,7 +30,7 @@ export default function Home() {
         />
         <meta
           property="og:image"
-          content={`${rootDir}/img/masahirolamarsh.jpg`}
+          content={`${rootDir}/img/masahirolamarsh.jpeg`}
           key="head-ogimage"
         ></meta>
         <meta property="og:url" content={`${rootDir}`} key="head-ogurl"></meta>
@@ -41,7 +41,7 @@ export default function Home() {
         ></meta>
         <meta
           name="twitter:image:alt"
-          content="Masahiro Lamarsh - NYC Jeweler"
+          content="Masahiro Lamarsh - New York City Jeweler"
           key="head-twitterimgalt"
         ></meta>
         <meta
