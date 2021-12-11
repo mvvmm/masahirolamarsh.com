@@ -63,7 +63,7 @@ export default function PieceModalBody({
             <h2 className="text-xl">Materials</h2>
             <ul className="mb-4">
               {data.materials.map((material) => (
-                <li className="ml-6">
+                <li key={material} className="ml-6">
                   <span className="mr-2 text-gray-600">x</span> {material}
                 </li>
               ))}
@@ -71,7 +71,7 @@ export default function PieceModalBody({
             <h2 className="text-xl">Includes</h2>
             <ul className="mb-4">
               {data.includes.map((include) => (
-                <li className="ml-6">
+                <li key={include} className="ml-6">
                   <span className="mr-2 text-gray-600">x</span> {include}
                 </li>
               ))}

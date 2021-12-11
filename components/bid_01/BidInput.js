@@ -68,8 +68,8 @@ export default function BidInput({ data, bidMade }) {
         >
           <div className="mb-4">
             <label
-              for="email"
-              class="block text-sm font-bold mb-2 text-gray-500"
+              htmlFor="email"
+              className="block text-sm font-bold mb-2 text-gray-500"
             >
               Email
             </label>
@@ -91,7 +91,10 @@ export default function BidInput({ data, bidMade }) {
             </small>
           </div>
           <div className="mb-4">
-            <label for="bid" class="block text-sm font-medium text-gray-500">
+            <label
+              htmlFor="bid"
+              className="block text-sm font-medium text-gray-500"
+            >
               Bid
             </label>
             <div className="mt-1 relative rounded-md shadow-sm">
@@ -121,7 +124,7 @@ export default function BidInput({ data, bidMade }) {
                 value={values.bid}
               ></input>
               <div className="absolute inset-y-0 right-0 flex items-center">
-                <label for="currency" class="sr-only">
+                <label htmlFor="currency" className="sr-only">
                   Currency
                 </label>
                 <span className="pr-4">USD</span>
@@ -133,7 +136,7 @@ export default function BidInput({ data, bidMade }) {
           </div>
           <div>
             <button
-              class={`${
+              className={`${
                 Object.keys(errors).length === 0
                   ? ""
                   : "opacity-0 cursor-not-allowed"
