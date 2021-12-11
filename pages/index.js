@@ -1,11 +1,9 @@
-import { useState, useEffect } from "react";
 import Newsletter from "../components/Newsletter";
 import Logo from "../components/Logo";
 import Bid01Header from "../components/bid_01/Bid01Header";
 import Pieces from "../components/bid_01/Pieces";
 import CountDown from "../components/bid_01/CountDown";
-import useCountdown from "../hooks/useCountdown";
-import Head from "Next/head";
+import Head from "next/head";
 
 export default function Home() {
   let rootDir = "https://www.masahirolamarsh.com";
