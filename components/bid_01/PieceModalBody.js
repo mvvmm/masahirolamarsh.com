@@ -80,7 +80,7 @@ export default function PieceModalBody({
           <div>
             {!hasBid && !bidOpen && (
               <button
-                class={`$inline-flex items-center justify-center text-center w-full bg-black border border-white font-bold py-2 px-4 rounded hover:bg-green-500`}
+                className={`$inline-flex items-center justify-center text-center w-full bg-black border border-white font-bold py-2 px-4 rounded hover:bg-green-500`}
                 onClick={() => {
                   setBidOpen(true);
                 }}
