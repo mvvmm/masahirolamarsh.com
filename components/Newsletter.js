@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { Formik } from "formik";
-import { ArrowNarrowRightIcon, CheckIcon } from "@heroicons/react/solid";
+import { ArrowNarrowRightIcon, CheckIcon, XIcon } from "@heroicons/react/solid";
 import Spinner from "./Spinner";
+import { addToNewsLetter } from "../lib/db";
 
 export default function Newsletter() {
   const [success, setSuccess] = useState(null);
@@ -23,14 +24,17 @@ export default function Newsletter() {
           }
           return errors;
         }}
-        onSubmit={(values, { setSubmitting, setFieldValue }) => {
+        onSubmit={async (values, { setSubmitting, setFieldValue }) => {
           const email = values.email;
-          setTimeout(() => {
-            setFieldValue("email", "");
+          try {
+            const res = await addToNewsLetter(email);
             setSuccess(true);
-            inputRef.current.blur();
-            setSubmitting(false);
-          }, 2000);
+          } catch (err) {
+            setSuccess(false);
+          }
+          setFieldValue("email", "");
+          inputRef.current.blur();
+          setSubmitting(false);
         }}
       >
         {({
@@ -95,6 +99,7 @@ export default function Newsletter() {
                 {success === true && (
                   <CheckIcon className="text-green-500 w-6" />
                 )}
+                {success === false && <XIcon className="text-red-500 w-6" />}
               </div>
             </div>
           </form>

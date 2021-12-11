@@ -100,7 +100,7 @@ export default function Pieces() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl border border-gray-500">
+              <div className="inline-block p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl border border-gray-500 max-w-screen-lg">
                 <PieceModalBody
                   data={activeData}
                   activeImageIdx={activeImageIdx}
