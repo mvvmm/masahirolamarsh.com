@@ -1,5 +1,6 @@
 import { useState } from "react";
 import BidInput from "./BidInput";
+import useCountdown from "../../hooks/useCountdown";
 
 export default function PieceModalBody({
   data,
@@ -9,11 +10,15 @@ export default function PieceModalBody({
 }) {
   const [hasBid, setHasBid] = useState(false);
   const [bidOpen, setBidOpen] = useState(false);
+  const [bidSuccess, setBidSuccess] = useState(null);
 
-  function bidMade() {
+  function bidMade(success) {
     setBidOpen(false);
     setHasBid(true);
+    setBidSuccess(success);
   }
+
+  const countdown = useCountdown({ endDate: "December 18, 2021 12:00:00" });
 
   return (
     <>
@@ -31,13 +36,13 @@ export default function PieceModalBody({
               className="mx-auto lg: max-w-full"
             />
           </div>
-          <div className="flex flex-row space-x-4 mx-auto">
+          <div className="flex flex-row flex-wrap space-x-4 justify-center">
             {data.imgs.map((img, i) => (
               <img
                 key={img}
                 className={` ${
                   activeImageIdx == i && "border border-white"
-                } hover:scale-105 cursor-pointer rounded-sm`}
+                } hover:scale-105 cursor-pointer rounded-sm my-2`}
                 src={img}
                 width={50}
                 height={50}
@@ -80,18 +85,26 @@ export default function PieceModalBody({
           <div>
             {!hasBid && !bidOpen && (
               <button
-                className={`$inline-flex items-center justify-center text-center w-full bg-black border border-white font-bold py-2 px-4 rounded hover:bg-green-500`}
+                className={`${
+                  countdown.expired && "opacity-50 pointer-events-none"
+                } $inline-flex items-center justify-center text-center w-full bg-black border border-white font-bold py-2 px-4 rounded hover:bg-green-500`}
                 onClick={() => {
                   setBidOpen(true);
                 }}
               >
-                Bid
+                {countdown.expired ? "Expired" : "Bid"}
               </button>
             )}
             {bidOpen && <BidInput data={data} bidMade={bidMade} />}
-            {hasBid && (
+            {hasBid && bidSuccess && (
               <h2 className="text-center text-green-500">
                 Bid received. Thank you.
+              </h2>
+            )}
+            {hasBid && !bidSuccess && (
+              <h2 className="text-center text-red-500">
+                Something went wrong. Try again or contact
+                support@masahirolamarsh.com
               </h2>
             )}
           </div>

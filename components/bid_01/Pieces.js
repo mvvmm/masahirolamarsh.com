@@ -7,12 +7,22 @@ import useWindowSize from "../../hooks/useWindowSize";
 export default function Pieces() {
   const pieceData = [
     {
-      cover_img: "https://cdn.masahirolamarsh.com/bid_01/1/1.webp",
+      cover_img: "https://cdn.masahirolamarsh.com/bid_01/1/20.webp",
       imgs: [
+        "https://cdn.masahirolamarsh.com/bid_01/1/17.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/20.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/1.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/12.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/13.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/14.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/15.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/16.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/2.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/3.webp",
-        "https://cdn.masahirolamarsh.com/bid_01/1/4.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/6.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/7.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/8.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/1/9.webp",
       ],
       title: "#4 ”I did it for my soul”",
       materials: [
@@ -32,10 +42,18 @@ export default function Pieces() {
       reserve: 3000,
     },
     {
-      cover_img: "https://cdn.masahirolamarsh.com/bid_01/3/1.webp",
+      cover_img: "https://cdn.masahirolamarsh.com/bid_01/3/4.webp",
       imgs: [
-        "https://cdn.masahirolamarsh.com/bid_01/3/1.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/4.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/12.webp",
         "https://cdn.masahirolamarsh.com/bid_01/3/2.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/3.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/5.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/6.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/8.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/9.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/1.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/3/10.webp",
       ],
       title: "#5 ”La Caverna”",
       materials: [
@@ -54,10 +72,15 @@ export default function Pieces() {
       reserve: 1500,
     },
     {
-      cover_img: "https://cdn.masahirolamarsh.com/bid_01/2/1.webp",
+      cover_img: "https://cdn.masahirolamarsh.com/bid_01/2/4.webp",
       imgs: [
+        "https://cdn.masahirolamarsh.com/bid_01/2/4.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/2/9.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/2/7.webp",
         "https://cdn.masahirolamarsh.com/bid_01/2/1.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/2/15.webp",
         "https://cdn.masahirolamarsh.com/bid_01/2/2.webp",
+        "https://cdn.masahirolamarsh.com/bid_01/2/10.webp",
       ],
       title: "#6 ”Cavities”",
       materials: [

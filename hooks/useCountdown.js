@@ -83,7 +83,7 @@ export default function useCountdown({ endDate }) {
           countdown.hours,
           countdown.minutes,
           countdown.seconds,
-          false
+          true
         );
       }
     }, 1000);

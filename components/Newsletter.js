@@ -59,7 +59,6 @@ export default function Newsletter() {
               <div className="flex-grow">
                 <div className="mb-4">
                   <input
-                    autoFocus="false"
                     ref={inputRef}
                     className="w-full peer appearance-none h-10 border-b-2 border-gray-600 text-white italic text-2xl placeholder-gray-600 focus:outline-none focus:border-gray-50 bg-black placeholder-transparent"
                     id="email"
@@ -79,7 +78,6 @@ export default function Newsletter() {
                   >
                     newsletter: Enter email
                   </label>
-                  <input type="hidden" autoFocus="true" />
                 </div>
               </div>
               <div className="absolute -right-8 bottom-2 m-1 ml-4 mb-4 w-6">

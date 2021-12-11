@@ -1,6 +1,6 @@
 export default function Bid01Header() {
   return (
-    <div className="mx-auto mt-12 max-w-screen-md  mb-4">
+    <div className="mx-auto mt-12 max-w-screen-md mb-4 px-2">
       <h1 className="text-7xl uppercase underline text-center">Bid I:</h1>
       <p className="m-4 text-lg text-justify leading-tight text-gray-300 font-garamond">
         These three pieces are presented as sculptures. To keep things fair,

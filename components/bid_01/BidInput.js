@@ -2,6 +2,7 @@ import { ArrowNarrowRightIcon, CheckIcon } from "@heroicons/react/solid";
 import { Formik } from "formik";
 import { useState } from "react";
 import Spinner from "../Spinner";
+import { addToBid01 } from "../../lib/db";
 
 function preventNonNumericalInput(e) {
   e = e || window.event;
@@ -38,15 +39,21 @@ export default function BidInput({ data, bidMade }) {
         }
         return errors;
       }}
-      onSubmit={(values, { setSubmitting, setFieldValue }) => {
+      onSubmit={async (values, { setSubmitting, setFieldValue }) => {
         const bid = values.bid;
-        setTimeout(() => {
-          setFieldValue("bid", "");
-          setFieldValue("email", "");
+        const email = values.email;
+        const piece = data.title;
+        try {
+          const res = await addToBid01(email, bid, piece);
           setSuccess(true);
-          setSubmitting(false);
-          bidMade();
-        }, 2000);
+          bidMade(true);
+        } catch (err) {
+          setSuccess(false);
+          bidMade(false);
+        }
+        setFieldValue("bid", "");
+        setFieldValue("email", "");
+        setSubmitting(false);
       }}
     >
       {({
@@ -137,9 +144,9 @@ export default function BidInput({ data, bidMade }) {
           <div>
             <button
               className={`${
-                Object.keys(errors).length === 0
+                Object.keys(errors).length === 0 && values.email != ""
                   ? ""
-                  : "opacity-0 cursor-not-allowed"
+                  : "opacity-0 pointer-events-none"
               } inline-flex items-center justify-center text-center w-full bg-black border border-white font-bold py-2 px-4 rounded hover:bg-green-500`}
             >
               {isSubmitting === true && (
