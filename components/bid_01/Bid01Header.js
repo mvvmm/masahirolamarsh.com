@@ -9,9 +9,9 @@ export default function Bid01Header() {
         towards funding my first gallery show, and a capsule collection to be
         released in February for New York Fashion Week. All pieces come with the
         original presentation, AND duplicate made to the specifications of the
-        buyer's size in order to maintain the integrity of the original artwork.
-        All of these are to be understood as 1 of 1, along with a personalized
-        copy.
+        buyer&apos;s size in order to maintain the integrity of the original
+        artwork. All of these are to be understood as 1 of 1, along with a
+        personalized copy.
       </p>
       <p className="text-right mr-12"> - M.</p>
     </div>
