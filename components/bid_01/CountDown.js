@@ -1,7 +1,7 @@
 import useCountdown from "../../hooks/useCountdown";
 
 export default function CountDown() {
-  const countdown = useCountdown({ endDate: "December 18, 2021 12:00:00" });
+  const countdown = useCountdown({ endDate: "December 19, 2021 00:00:00 EST" });
   return (
     <div className="flex">
       <div className="text-5xl lg:text-7xl mx-auto">

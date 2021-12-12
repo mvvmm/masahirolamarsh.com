@@ -87,7 +87,6 @@ export default function Pieces() {
         "Concrete base",
         "Zinc bolts",
         "Patinaed brass",
-        "Lazy patina",
         "Sterling silver",
       ],
       includes: [

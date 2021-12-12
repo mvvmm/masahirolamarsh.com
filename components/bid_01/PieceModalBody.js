@@ -18,7 +18,7 @@ export default function PieceModalBody({
     setBidSuccess(success);
   }
 
-  const countdown = useCountdown({ endDate: "December 18, 2021 12:00:00" });
+  const countdown = useCountdown({ endDate: "December 19, 2021 00:00:00" });
 
   return (
     <>
