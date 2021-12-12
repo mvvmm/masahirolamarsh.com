@@ -34,8 +34,9 @@ export default function BidInput({ data, bidMade }) {
           ) === 0
         ) {
           errors.bid = "Invalid Currency";
-        } else if (values.bid <= data.reserve) {
-          errors.bid = "Bid must be greater than reserve";
+        }
+        if (values.bid.replace(",", "") <= data.reserve) {
+          errors.bid = `Bid must be greater than reserve`;
         }
         return errors;
       }}
