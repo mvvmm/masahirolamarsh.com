@@ -76,8 +76,11 @@ export default function Logo() {
                           Masahiro LaMarsh
                         </Dialog.Title>
                       </div>
-                      <a href="mailto:contact@masahirolamarsh.com">
-                        <div className="inline-flex items-center content-center text-gray-500 hover:text-amber-800 focus:outline-none focus:text-amber-800">
+                      <a
+                        href="mailto:contact@masahirolamarsh.com"
+                        className="focus:outline-none focus:text-amber-800"
+                      >
+                        <div className="inline-flex items-center content-center text-gray-500 hover:text-amber-800 ">
                           <div>
                             <MailIcon className="w-5 h-5 pt-0.5" />
                           </div>
