@@ -7,8 +7,9 @@ import useWindowSize from "../../hooks/useWindowSize";
 export default function Pieces() {
   const pieceData = [
     {
-      cover_img: "https://cdn.masahirolamarsh.com/bid_01/1/20.webp",
+      cover_img: "https://cdn.masahirolamarsh.com/bid_01/1/21.webp",
       imgs: [
+        "https://cdn.masahirolamarsh.com/bid_01/1/21.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/17.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/20.webp",
         "https://cdn.masahirolamarsh.com/bid_01/1/1.webp",
@@ -42,8 +43,9 @@ export default function Pieces() {
       reserve: 3000,
     },
     {
-      cover_img: "https://cdn.masahirolamarsh.com/bid_01/3/4.webp",
+      cover_img: "https://cdn.masahirolamarsh.com/bid_01/3/13.webp",
       imgs: [
+        "https://cdn.masahirolamarsh.com/bid_01/3/13.webp",
         "https://cdn.masahirolamarsh.com/bid_01/3/4.webp",
         "https://cdn.masahirolamarsh.com/bid_01/3/12.webp",
         "https://cdn.masahirolamarsh.com/bid_01/3/2.webp",
@@ -72,8 +74,9 @@ export default function Pieces() {
       reserve: 1500,
     },
     {
-      cover_img: "https://cdn.masahirolamarsh.com/bid_01/2/4.webp",
+      cover_img: "https://cdn.masahirolamarsh.com/bid_01/2/16.webp",
       imgs: [
+        "https://cdn.masahirolamarsh.com/bid_01/2/16.webp",
         "https://cdn.masahirolamarsh.com/bid_01/2/4.webp",
         "https://cdn.masahirolamarsh.com/bid_01/2/9.webp",
         "https://cdn.masahirolamarsh.com/bid_01/2/7.webp",
