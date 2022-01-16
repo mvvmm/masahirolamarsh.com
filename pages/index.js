@@ -4,6 +4,7 @@ import Bid01Header from "../components/bid_01/Bid01Header";
 import Pieces from "../components/bid_01/Pieces";
 import CountDown from "../components/bid_01/CountDown";
 import Head from "next/head";
+import ComingSoon from "../components/ComingSoon";
 
 export default function Home() {
   let rootDir = "https://www.masahirolamarsh.com";
@@ -51,13 +52,14 @@ export default function Home() {
         ></meta>
       </Head>
       <div>
-        <Newsletter />
+        {/* <Newsletter />
         <Logo />
         <span className="font-quintessential mb-4">
           <Bid01Header />
         </span>
         <CountDown />
-        <Pieces />
+        <Pieces /> */}
+        <ComingSoon />
       </div>
     </>
   );
