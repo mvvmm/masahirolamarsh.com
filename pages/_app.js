@@ -1,16 +1,15 @@
+import { CartProvider } from "../contexts/Cart";
 import "../styles/globals.css";
-import { Provider as AuthProvider } from "next-auth/client";
-import { MobileMenuProvider } from "../contexts/MobileMenu";
+import { ApolloProvider } from "@apollo/client";
+import { client } from "../utils/shopify";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <AuthProvider>
-        <MobileMenuProvider>
-          <Component {...pageProps} />
-        </MobileMenuProvider>
-      </AuthProvider>
-    </>
+    <ApolloProvider client={client}>
+      <CartProvider>
+        <Component {...pageProps} />
+      </CartProvider>
+    </ApolloProvider>
   );
 }
 

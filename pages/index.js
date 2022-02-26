@@ -1,66 +1,48 @@
-import Newsletter from "../components/Newsletter";
-import Logo from "../components/Logo";
-import Bid01Header from "../components/bid_01/Bid01Header";
-import Pieces from "../components/bid_01/Pieces";
-import CountDown from "../components/bid_01/CountDown";
-import Head from "next/head";
-import ComingSoon from "../components/ComingSoon";
+import { getAllCollections, getAllProducts } from "../utils/shopify";
+import Link from "next/link";
+import Layout from "../components/global/Layout";
+import Hero from "../components/index/Hero";
+import SectionHeader from "../components/global/SectionHeader";
+import Section from "../components/global/Section";
 
-export default function Home() {
-  let rootDir = "https://www.masahirolamarsh.com";
+export default function Home({ allProducts, allCollections }) {
   return (
-    <>
-      <Head>
-        <title>Masahiro LaMarsh</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-
-        <meta
-          name="description"
-          content={`Masahiro LaMarsh - New York City Jeweler.`}
-          key="head-description"
-        />
-        <meta
-          property="og:title"
-          content={`Masahiro LaMarsh`}
-          key="head-ogtitle"
-        />
-        <meta
-          property="og:description"
-          content={`Masahiro LaMarsh - New York City Jeweler.`}
-          key="head-ogdescription"
-        />
-        <meta
-          property="og:image"
-          content={`${rootDir}/img/masahirolamarsh.jpeg`}
-          key="head-ogimage"
-        ></meta>
-        <meta property="og:url" content={`${rootDir}`} key="head-ogurl"></meta>
-        <meta
-          name="twitter:card"
-          content="summary_large_image"
-          key="head-twittercard"
-        ></meta>
-        <meta
-          name="twitter:image:alt"
-          content="Masahiro Lamarsh - New York City Jeweler"
-          key="head-twitterimgalt"
-        ></meta>
-        <meta
-          property="og:site_name"
-          content="Masahiro LaMarsh"
-          key="head-ogsite_name"
-        ></meta>
-      </Head>
-      <div>
-        {/* <Newsletter />
-        <Logo />
-        <span className="font-quintessential mb-4">
-          <Bid01Header />
-        </span>
-        <CountDown />
-        <Pieces /> */}
-        <ComingSoon />
-      </div>
-    </>
+    <Layout overlapHeader>
+      <Hero />
+      <Section>
+        <SectionHeader title="Collections" />
+        <ul>
+          {allCollections.map((collection) => (
+            <li key={collection.node.id}>
+              <Link href={`/collections/${collection.node.handle}`}>
+                {collection.node.handle}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+      <Section>
+        <SectionHeader title="Products" />
+        <ul>
+          {allProducts.map((product) => (
+            <li key={product.node.id}>
+              <Link
+                href={`/collections/${product.node.collections.edges[0].node.handle}/products/${product.node.handle}`}
+              >
+                {product.node.title}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+    </Layout>
   );
+}
+
+export async function getServerSideProps(context) {
+  const allProducts = await getAllProducts();
+  const allCollections = await getAllCollections();
+  return {
+    props: { allProducts, allCollections },
+  };
 }
