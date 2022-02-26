@@ -5,7 +5,7 @@ import { useCart } from "../../contexts/Cart";
 import Link from "next/link";
 import { USDFormatter } from "../../utils/currency";
 import { Icon } from "@iconify/react";
-import LoadingWheel from "./loadingWheel";
+import LoadingWheel from "./LoadingWheel";
 
 export default function CartPanel() {
   const cart = useCart();
