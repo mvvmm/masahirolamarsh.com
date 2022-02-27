@@ -4,7 +4,7 @@ import Section from "../components/global/Section";
 export default function privacy() {
   return (
     <Layout>
-      <article class="prose mx-auto max-w-2xl">
+      <article className="prose mx-auto max-w-2xl">
         <h1>Privacy Policy</h1>
         <p>Last updated: Februrary 26th, 2022</p>
         <p>
