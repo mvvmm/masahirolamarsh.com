@@ -14,7 +14,7 @@ export default function CartPanel() {
     <Transition.Root show={cart.panelOpen} as={Fragment}>
       <Dialog
         as="div"
-        className="fixed inset-0 overflow-hidden"
+        className="fixed inset-0 overflow-hidden z-50"
         onClose={cart.setPanelOpen}
       >
         <div className="absolute inset-0 overflow-hidden">

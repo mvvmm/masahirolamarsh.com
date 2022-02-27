@@ -10,7 +10,7 @@ export default function Header({ overlap }) {
   return (
     <>
       <CartPanel />
-      <div className="pointer-events-none fixed top-0 w-full z-50">
+      <div className="pointer-events-none fixed top-0 w-full z-40">
         <div className="flex items-center justify-between p-8">
           <div className="pointer-events-auto">
             <Icon icon="bytesize:menu" className="w-6 h-6 cursor-pointer" />
