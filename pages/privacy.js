@@ -4,7 +4,7 @@ import Section from "../components/global/Section";
 export default function privacy() {
   return (
     <Layout>
-      <article className="prose mx-auto max-w-2xl">
+      <article class="prose mx-auto max-w-2xl">
         <h1>Privacy Policy</h1>
         <p>Last updated: Februrary 26th, 2022</p>
         <p>
@@ -143,16 +143,17 @@ export default function privacy() {
           </p>
           <h2>Cookies</h2>
           <p>
-            A cookie is a small amount of information that's downloaded to your
-            computer or device when you visit our Site. We use a number of
+            A cookie is a small amount of information that&apos;s downloaded to
+            your computer or device when you visit our Site. We use a number of
             different cookies, including functional, performance, advertising,
             and social media or content cookies. Cookies make your browsing
             experience better by allowing the website to remember your actions
             and preferences (such as login and region selection). This means you
-            don't have to re-enter this information each time you return to the
-            site or browse from one page to another. Cookies also provide
-            information on how people use the website, for instance whether it's
-            their first time visiting or if they are a frequent visitor.
+            don&apos;t have to re-enter this information each time you return to
+            the site or browse from one page to another. Cookies also provide
+            information on how people use the website, for instance whether
+            it&apos;s their first time visiting or if they are a frequent
+            visitor.
           </p>
           <p>
             We use the following cookies to optimize your experience on our Site
@@ -287,10 +288,10 @@ export default function privacy() {
           <p>
             Most browsers automatically accept cookies, but you can choose
             whether or not to accept cookies through your browser controls,
-            often found in your browser's “Tools” or “Preferences” menu. For
-            more information on how to modify your browser settings or how to
-            block, manage or filter cookies can be found in your browser's help
-            file or through such sites as{" "}
+            often found in your browser&apos;s “Tools” or “Preferences” menu.
+            For more information on how to modify your browser settings or how
+            to block, manage or filter cookies can be found in your
+            browser&apos;s help file or through such sites as{" "}
             <a href="www.allaboutcookies.org" target="_blank" rel="noreferrer">
               www.allaboutcookies.org
             </a>
