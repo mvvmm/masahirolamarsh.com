@@ -258,7 +258,7 @@ export default function terms() {
             We may, but have no obligation to, monitor, edit or remove content
             that we determine in our sole discretion are unlawful, offensive,
             threatening, libelous, defamatory, pornographic, obscene or
-            otherwise objectionable or violates any party’s intellectual
+            otherwise objectionable or violates any party's intellectual
             property or these Terms of Service.
           </p>
           <p>
@@ -387,7 +387,7 @@ export default function terms() {
             our parent, subsidiaries, affiliates, partners, officers, directors,
             agents, contractors, licensors, service providers, subcontractors,
             suppliers, interns and employees, harmless from any claim or demand,
-            including reasonable attorneys’ fees, made by any third-party due to
+            including reasonable attorneys' fees, made by any third-party due to
             or arising out of your breach of these Terms of Service or the
             documents they incorporate by reference, or your violation of any
             law or the rights of a third-party.
