@@ -475,7 +475,7 @@ export default function terms() {
         <section>
           <h2>SECTION 20 - CONTACT INFORMATION</h2>
           <p>
-            Questions about the Terms of Service should be sent to us at
+            Questions about the Terms of Service should be sent to us at{" "}
             <a href="mailto:legal@masahirolamarsh.com">
               legal@masahirolamarsh.com
             </a>
