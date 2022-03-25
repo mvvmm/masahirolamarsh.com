@@ -24,11 +24,14 @@ export function CartProvider({ children }) {
   const router = useRouter();
 
   // Load cart into state
-  useEffect(async () => {
-    if (ID) {
-      let cartData = await getCart({ cartId: ID });
-      setData(cartData);
+  useEffect(() => {
+    async function fetchCart() {
+      if (ID) {
+        let cartData = await getCart({ cartId: ID });
+        setData(cartData);
+      }
     }
+    fetchCart();
   }, [ID]);
 
   // TODO: delete me

@@ -2,13 +2,13 @@ import Link from "next/link";
 
 const navigation = {
   main: [
-    { name: "About", href: "/about" },
-    { name: "Terms of Service", href: "/terms" },
-    { name: "Privacy Policy", href: "/privacy" },
+    { label: "About", href: "/about" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "Privacy Policy", href: "/privacy" },
   ],
   social: [
     {
-      name: "Instagram",
+      label: "Instagram",
       href: "https://www.instagram.com/hirolamarsh/",
       icon: (props) => (
         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
@@ -32,10 +32,10 @@ export default function Footer() {
           aria-label="Footer"
         >
           {navigation.main.map((item) => (
-            <div key={item.name} className="px-5 py-2">
+            <div key={item.label} className="px-5 py-2">
               <Link href={item.href}>
                 <a className="text-base text-gray-500 hover:text-gray-900">
-                  {item.name}
+                  {item.label}
                 </a>
               </Link>
             </div>
@@ -44,12 +44,12 @@ export default function Footer() {
         <div className="mt-4 flex justify-center space-x-6">
           {navigation.social.map((item) => (
             <a
-              key={item.name}
+              key={item.label}
               href={item.href}
               target="__blank"
               className="text-gray-400 hover:text-gray-500"
             >
-              <span className="sr-only">{item.name}</span>
+              <span className="sr-only">{item.label}</span>
               <item.icon className="h-6 w-6" aria-hidden="true" />
             </a>
           ))}

@@ -4,16 +4,26 @@ import Link from "next/link";
 import { useState } from "react";
 import { useCart } from "../../contexts/Cart";
 import CartPanel from "./CartPanel";
+import MenuPanel from "./MenuPanel";
 
 export default function Header({ overlap }) {
   const cart = useCart();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <>
       <CartPanel />
+      <MenuPanel open={menuOpen} setOpen={setMenuOpen} />
       <div className="pointer-events-none fixed top-0 w-full z-40">
         <div className="flex items-center justify-between p-8">
           <div className="pointer-events-auto">
-            <Icon icon="bytesize:menu" className="w-6 h-6 cursor-pointer" />
+            <Icon
+              icon="bytesize:menu"
+              className="w-6 h-6 cursor-pointer"
+              onClick={() => {
+                setMenuOpen(true);
+              }}
+            />
           </div>
           <div className="group pointer-events-auto">
             <Link href="/">
