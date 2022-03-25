@@ -14,12 +14,12 @@ export default function Header({ overlap }) {
     <>
       <CartPanel />
       <MenuPanel open={menuOpen} setOpen={setMenuOpen} />
-      <div className="pointer-events-none fixed top-0 w-full z-40">
+      <div className="pointer-events-none fixed top-0 z-40 w-full">
         <div className="flex items-center justify-between p-8">
           <div className="pointer-events-auto">
             <Icon
               icon="bytesize:menu"
-              className="w-6 h-6 cursor-pointer"
+              className="h-6 w-6 cursor-pointer"
               onClick={() => {
                 setMenuOpen(true);
               }}
@@ -28,19 +28,23 @@ export default function Header({ overlap }) {
           <div className="group pointer-events-auto">
             <Link href="/">
               <a>
-                <img className="h-16" src="/img/thumb/black.png" />
+                <img
+                  className="h-16"
+                  src="/img/thumb/black.png"
+                  alt="Masahiro LaMarsh thumb"
+                />
               </a>
             </Link>
           </div>
-          <div className="relative pointer-events-auto">
+          <div className="pointer-events-auto relative">
             <Icon
               icon="bytesize:bag"
-              className="w-6 h-6 cursor-pointer"
+              className="h-6 w-6 cursor-pointer"
               onClick={() => {
                 cart.setPanelOpen(true);
               }}
             />
-            <div className="pointer-events-none absolute -translate-y-1/2 -translate-x-1/2 inset-y-1/2 inset-x-1/2 w-4 h-4 flex items-center justify-center rounded-full text-xxs mt-0.5">
+            <div className="pointer-events-none absolute inset-y-1/2 inset-x-1/2 mt-0.5 flex h-4 w-4 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full text-xxs">
               {cart?.data?.lines?.edges?.length || 0}
             </div>
           </div>
@@ -50,24 +54,40 @@ export default function Header({ overlap }) {
       <div
         className={`${
           overlap && "hidden"
-        } w-full invisible pointer-events-none`}
+        } pointer-events-none invisible w-full`}
       >
         <div className="flex items-center justify-between p-8">
-          <div>
-            <Icon icon="bytesize:menu" className="w-6 h-6" />
-          </div>
-          <div className="group cursor-pointer">
-            <img
-              className="h-16 group-hover:hidden"
-              src="/img/thumb/black.png"
-            />
-            <img
-              className="h-16 hidden group-hover:block"
-              src="/img/thumb/white.png"
+          <div className="pointer-events-auto">
+            <Icon
+              icon="bytesize:menu"
+              className="h-6 w-6 cursor-pointer"
+              onClick={() => {
+                setMenuOpen(true);
+              }}
             />
           </div>
-          <div>
-            <Icon icon="bytesize:bag" className="w-6 h-6" />
+          <div className="group pointer-events-auto">
+            <Link href="/">
+              <a>
+                <img
+                  className="h-16"
+                  src="/img/thumb/black.png"
+                  alt="Masahiro LaMarsh thumb"
+                />
+              </a>
+            </Link>
+          </div>
+          <div className="pointer-events-auto relative">
+            <Icon
+              icon="bytesize:bag"
+              className="h-6 w-6 cursor-pointer"
+              onClick={() => {
+                cart.setPanelOpen(true);
+              }}
+            />
+            <div className="pointer-events-none absolute inset-y-1/2 inset-x-1/2 mt-0.5 flex h-4 w-4 -translate-y-1/2 -translate-x-1/2 items-center justify-center rounded-full text-xxs">
+              {cart?.data?.lines?.edges?.length || 0}
+            </div>
           </div>
         </div>
       </div>

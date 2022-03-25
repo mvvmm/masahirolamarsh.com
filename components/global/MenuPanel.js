@@ -60,7 +60,7 @@ export default function MenuPanel({ open, setOpen }) {
                     <div className="mx-auto w-72 px-12">
                       <Link href="/">
                         <a className="group focus:outline-none">
-                          <div className="rounded-sm ring-black ring-offset-8 group-focus:ring-1">
+                          <div className="rounded-sm ring-black ring-offset-8 group-focus-visible:ring-1">
                             <Image
                               src="/img/logo w name below.png"
                               alt="Masahiro LaMarsh logo"

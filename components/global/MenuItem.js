@@ -9,7 +9,7 @@ export default function MenuItem({ item }) {
   return (
     <li className="flex py-2">
       <Link href={item.href}>
-        <a className="group flex w-full items-center rounded-sm text-2xl font-normal uppercase ring-black ring-offset-2 focus:outline-none focus:ring-1">
+        <a className="group flex w-full items-center rounded-sm text-2xl font-normal uppercase ring-black ring-offset-2 focus:outline-none focus-visible:ring-1">
           <MenuItemSpinner isActive={isActive} />
           <div className="flex-grow">{item.label}</div>
         </a>
