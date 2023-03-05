@@ -126,7 +126,7 @@ export default function Home() {
         <div className="h-full flex">
           <div className="relative mx-auto my-auto" id="img-container">
             <Tilt
-              className="absolute z-0"
+              className="absolute"
               tiltMaxAngleX={10}
               tiltMaxAngleY={10}
               perspective={900}
