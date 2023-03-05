@@ -126,7 +126,7 @@ export default function Home() {
         <div className="h-full flex">
           <div className="relative mx-auto my-auto" id="img-container">
             <Tilt
-              className="absolute"
+              className="absolute z-0"
               tiltMaxAngleX={10}
               tiltMaxAngleY={10}
               perspective={900}
@@ -137,6 +137,7 @@ export default function Home() {
               <Image src={bg} alt="bg" />
             </Tilt>
             <Tilt
+              id="teeth"
               className="absolute"
               tiltMaxAngleX={20}
               tiltMaxAngleY={20}
@@ -146,7 +147,7 @@ export default function Home() {
               gyroscope
               trackOnWindow
             >
-              <Image src={teeth} alt="teeth" />
+              <Image src={teeth} alt="teeth" className="yes" />
             </Tilt>
             <div
               className="absolute top-full flex w-full justify-center mt-12"
