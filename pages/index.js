@@ -136,19 +136,21 @@ export default function Home() {
             >
               <Image src={bg} alt="bg" />
             </Tilt>
-            <Tilt
-              id="teeth"
-              className="absolute"
-              tiltMaxAngleX={20}
-              tiltMaxAngleY={20}
-              perspective={700}
-              transitionSpeed={9000}
-              scale={1.1}
-              gyroscope
-              trackOnWindow
-            >
-              <Image src={teeth} alt="teeth" className="yes" />
-            </Tilt>
+            <span className="z-boost">
+              <Tilt
+                id="teeth"
+                className="absolute"
+                tiltMaxAngleX={20}
+                tiltMaxAngleY={20}
+                perspective={700}
+                transitionSpeed={9000}
+                scale={1.1}
+                gyroscope
+                trackOnWindow
+              >
+                <Image src={teeth} alt="teeth" className="yes" />
+              </Tilt>
+            </span>
             <div
               className="absolute top-full flex w-full justify-center mt-12"
               onClick={() => {

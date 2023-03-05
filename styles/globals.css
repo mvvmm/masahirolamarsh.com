@@ -57,6 +57,12 @@
     height: calc(var(--img-height) / 3);
   }
 
+  .z-boost {
+    position: absolute;
+    transform: translateZ(1000px);
+    width: 100%;
+  }
+
   @media only screen and (min-width: 768px) {
     #img-container {
       width: calc(var(--img-width) / 2);
