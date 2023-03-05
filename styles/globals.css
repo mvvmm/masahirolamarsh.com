@@ -1,3 +1,88 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  :root {
+    --img-width: 930px;
+    --img-height: 719px;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body {
+    background-color: black;
+    color: white;
+  }
+
+  /* Chrome, Safari, Edge, Opera */
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  /* Firefox */
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+
+  body {
+    margin: 0px;
+  }
+
+  #teeth {
+    transform: translateZ(500px);
+  }
+
+  #text1,
+  #text2 {
+    cursor: pointer;
+    width: max-content;
+  }
+
+  #text1 {
+    z-index: 1;
+  }
+
+  #text-container {
+    filter: url(#threshold) blur(0.2px);
+  }
+
+  #img-container {
+    width: calc(var(--img-width) / 3);
+    height: calc(var(--img-height) / 3);
+  }
+
+  @media only screen and (min-width: 768px) {
+    #img-container {
+      width: calc(var(--img-width) / 2);
+      height: calc(var(--img-height) / 2);
+    }
+  }
+}
+
+@layer components {
+  .button {
+    @apply bg-black py-2 px-4 text-white focus:outline-none focus:ring-1 ring-offset-2 ring-black;
+  }
+
+  .a {
+    @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600 cursor-pointer;
+  }
+
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
+  }
+
+  .form-error {
+    @apply text-red-500 mb-4 text-xs;
+  }
+
+  .form-field {
+    @apply border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:border-black focus-visible:ring-1 ring-black mt-1;
+  }
+}
