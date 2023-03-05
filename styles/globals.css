@@ -3,12 +3,17 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --img-width: 930px;
+    --img-height: 719px;
+  }
+
   * {
     -webkit-tap-highlight-color: transparent;
   }
-  
 
-  html, body {
+  html,
+  body {
     background-color: black;
     color: white;
   }
@@ -21,8 +26,52 @@
   }
 
   /* Firefox */
-  input[type=number] {
+  input[type="number"] {
     -moz-appearance: textfield;
+  }
+
+  .parallax-effect-img {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+    background-image: url("/img/bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
+  .parallax-effect-img .inner-element {
+    transform: translateZ(40px) scale(0.8);
+    width: 70%;
+    margin-left: 50%;
+  }
+
+  body {
+    margin: 0px;
+  }
+
+  #text1,
+  #text2 {
+    cursor: pointer;
+    width: max-content;
+  }
+
+  #text1 {
+    z-index: 1;
+  }
+
+  #text-container {
+    filter: url(#threshold) blur(0.2px);
+  }
+
+  #img-container {
+    width: calc(var(--img-width) / 3);
+    height: calc(var(--img-height) / 3);
+  }
+
+  @media only screen and (min-width: 768px) {
+    #img-container {
+      width: calc(var(--img-width) / 2);
+      height: calc(var(--img-height) / 2);
+    }
   }
 }
 
@@ -32,11 +81,11 @@
   }
 
   .a {
-   @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600 cursor-pointer
+    @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600 cursor-pointer;
   }
 
-  .form-label{
-    @apply block text-sm font-medium text-gray-700
+  .form-label {
+    @apply block text-sm font-medium text-gray-700;
   }
 
   .form-error {
@@ -44,6 +93,6 @@
   }
 
   .form-field {
-    @apply border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:border-black focus-visible:ring-1 ring-black mt-1
+    @apply border border-gray-300 px-3 py-2 shadow-sm focus:outline-none focus:border-black focus-visible:ring-1 ring-black mt-1;
   }
 }
