@@ -49,6 +49,20 @@ export default class MyDocument extends Document {
 
           {/* <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-app.js"></Script>
           <Script src="https://www.gstatic.com/firebasejs/8.8.0/firebase-analytics.js"></Script> */}
+
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            `,
+            }}
+          />
         </Head>
         <body className="font-garamond">
           <Main />
