@@ -168,7 +168,7 @@ export default function Home() {
                   [ <span className="group-hover:text-sm">contact</span> ]
                 </span>
                 <span id="text2" className="absolute left-1/2 -translate-x-1/2">
-                  m@masahirolamarsh.com
+                  contact@masahirolamarsh.com
                 </span>
               </div>
             </div>
